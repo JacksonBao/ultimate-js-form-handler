@@ -91,7 +91,7 @@ class ultimateFormHandler {
 
         // check to see if you can submit with ajax or normally
         var processAjax = true;
-        if (form.hasAttribute('data-form-ajax-request')) {
+        if (form.hasAttribute('data-form-ajax-request') && form.getAttribute('data-form-ajax-request') != 'true') {
             if (form.getAttribute('data-form-ajax-request') == 'false') {
                 processAjax = false;
             } else {
@@ -134,7 +134,7 @@ class ultimateFormHandler {
                 if (typeof fn === "function") { fn(formData, this); } else {
                     console.log('Could not find function ' + callback);
                 };
-            } else if (processAjax == true) {
+            } else if (processAjax === true) {
                 var action = form.getAttribute('action');
                 var method = form.getAttribute('method') || 'get';
                 var formData = new FormData(form);
@@ -153,7 +153,7 @@ class ultimateFormHandler {
                         var fn = window[callback];
                         // is object a function?
                         if (typeof fn === "function") { fn(response, this); } else {
-                            console.log('Could not find function ' + callback);
+                            console.log('Could not find ajax callback function ' + callback);
                         };
                         
                     }
@@ -164,7 +164,7 @@ class ultimateFormHandler {
                     }
                     
                 }).fail(error => {
-                    console.log(error);
+                    console.log('Post route not found.\nError:: ', error);
                     // reset button
                     if(submitButton && submitButton.hasAttribute('data-action') && submitButton.getAttribute('data-action') == 'disabled'){
                         submitButton.disabled = false;
@@ -346,7 +346,7 @@ class ultimateFormHandler {
      * @returns bolean true for is valid false for invalid input field.
      */
     input(input) {
-        var type = input.getAttribute('type').toLowerCase();
+        var type = input.hasAttribute('type') ? input.getAttribute('type').toLowerCase() : '';
         // check the input type
         for (const [key, value] of Object.entries(this.inputTypes)) {
             if (value.indexOf(type) >= 0) {
