@@ -1,5 +1,5 @@
 # ULTIMATE JAVASCRIPT FORM HANDLER
-Eliminate thousands of lines of code with this simple JavaScript form handler. This class has been design to account for all form handling scenarios and has custom data attributes which enables you to build faster and robust form. This form handler uses existing HTML form validators such as required, min, max, minLength, maxLength etc.. to ensure adaptability. This class relies on jQuery ajax to send POST and GET request and do callbacks once result is obtain. This class enables you to write simple html form and validate this form seamlessly, sending the result to the required destination with no hasstle. 
+Eliminate thousands of lines of code with this simple JavaScript form handler. This class has been design to account for all form handling scenarios and has custom data attributes which enables you to build faster and robust form. This form handler uses existing HTML form validators such as required, min, max, minLength, maxLength etc.. to ensure adaptability. This class relies on jQuery ajax to send POST and GET request and do callbacks once result is obtain. This class also uses bootstrap.css to display invalid form with css class is_invalid. This class enables you to write simple html form and validate this form seamlessly, sending the result to the required destination with no hasstle. 
 
 # ATTRIBUTES DEFINATIONS
 
