@@ -88,9 +88,71 @@ Eliminate thousands of lines of code with this simple JavaScript form handler. T
    
    #### data-select-max : interger | optional
       This attribute only workd on select fields with the *multiple* attribute. It determines the maximum number of items a user can select from the dropdown list.
-  
+
+   ### FILES
+   #### data-file-min-size
+   The minimum filesize of each file.
+   
+   #### data-file-max-size 
+   The maximum filesize of each file.
+
+   #### data-file-min-count
+   The minimum amount of files that can be selected.
+   
+   #### data-file-max-count
+   The maximum amount of files that can be selected.
+
+   #### data-file-extensions
+   A list of accepteable extensions comma seperated list.
+   
+   # Class Methods
+
+   #### constructor()
+   This method initiates all the forms in view and adds event Listeners to handle on submit of each form. This method also initializes the various error json files.
+
+   #### loadJsonErrorFile( form )
+
+   This method sends a GET request to the provide link inother to obtain a json response containing.
+   ##### How to structure your JSON file
+   There are two accepted means of structuring your error file;
+   - ***Object with form inputs as keys*** Your json object should have input Id's as **keys** and error messages as **values**. E.g. {elementId_1 : 'message', ...}
+   - ***Setting form ID as json Keys:*** This option requires you to set an object with the keys being the same as the id's of your forms. The values will contain an object with each for element's Id's as Keys and values as message. E.g.  {formId_1 : { elementId_1 : 'message', ...}, ...}
+    
+   #### processForm( e )
+   This event listener is added to all form in the **constructor** and is triggered once the form is being submited by the user. This method controls where the form will be submitted to and validates all form element.
+
+   #### sendRequest (url, type, data, callback)
+   This method is used in submitting custom forms not proceessed by Ultimate-form-handler. 
+
+   #### processLiveInput( input )
+   This is an event listener attached to input elements which have  the attribute **data-live** set to **true**
+
+   #### scrollToInput( input ) 
+   This method scrolls form element into view.
+
+   #### formErr( input, msg )
+   This method places the form error into view and adds class **is_invalid** highlight the selected input element.
+
+   #### processElements ( input ) 
+   This method fires on form submission as it goes through all the form to check and make sure they are correct.
+
+   #### input ( input )
+   This method hand form elements with tab **input**
+
+   #### select ( input )
+   This method validates all **select** form elements.
+
+   #### validateEmail( input )
+   This method validates all input type **emails** 
       
-      
-  
-      
-      
+   #### validateString (input)
+   This method processes all strings
+
+   #### validateInteger (input)
+   This method processes numbers
+
+   #### validateRadio (input)
+   This method validates all radio input elements
+
+   #### validateObject (input)
+   This method validates input type **file** 

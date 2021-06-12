@@ -565,7 +565,7 @@ class ultimateFormHandler {
         // get specifications such as required, min size, count max size
         var maxSize = input.hasAttribute('data-file-max-size') ? input.getAttribute('data-file-max-size').replace(/[^0-9.]/g, '') * 1 : null; // in mb
         var minSize = input.hasAttribute('data-file-min-size') ? input.getAttribute('data-file-min-size').replace(/[^0-9.]/g, '') * 1 : null; // in mb
-        var extensions = input.hasAttribute('data-file-min-size') ? input.getAttribute('data-file-extensions').replace(/[^a-zA-Z\,]\s/g, '').toLowerCase() : ''; // separate types with comma or use detault image [jpg, png, gif], doc
+        var extensions = input.hasAttribute('data-file-extensions') ? input.getAttribute('data-file-extensions').replace(/[^a-zA-Z\,]\s/g, '').toLowerCase() : ''; // separate types with comma or use detault image [jpg, png, gif], doc
         var fileCountMax = input.hasAttribute('data-file-max-count') ? input.getAttribute('data-file-max-count').replace(/[^0-9]/g, '') * 1 : 0;// how many files expected
         var fileCountMin = input.hasAttribute('data-file-min-count') ? input.getAttribute('data-file-min-count').replace(/[^0-9]/g, '') * 1 : 0;// how many files expected
 
